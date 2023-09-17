@@ -36,7 +36,7 @@ SeSac 수업에서 개발자도구로 애플 홈페이지의 css요소들을 삭
 ![](https://velog.velcdn.com/images/riverhye/post/6cb440fd-619a-44ee-94a7-ff01946642f0/image.png)
 
 ```
-<div class="tooltiip_box"> ~ </div>
+<div class="tooltip_box"> ~ </div>
 ```
 
 '바로가기'라는 메시지 창이 아래에 생긴다. 아마 위에 적은 div에 써있을 것 같은데 클릭을 하면 호버를 벗어나므로 확인할 수가 없다..
@@ -84,4 +84,5 @@ SeSac 수업에서 개발자도구로 애플 홈페이지의 css요소들을 삭
 즉 버튼에 동그란 회색칠이 `::before`의 역할 같다.
 
 <hr>
+
 `position:absolute`에 대한 공부 후 내용 추가.
