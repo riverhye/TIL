@@ -1,0 +1,85 @@
+:root {
+    background-color: whitesmoke;
+    color: #92839D;
+}
+
+h1 {
+    text-align: center;
+}
+
+#color_list,
+#second-color-list_1,
+#second-color-list_2  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.color_box,
+.second-color-box {
+    width: 200px;
+    height: 400px;
+    border: 5px solid white;
+    position: relative;
+    margin: 20px;
+    }
+
+.color_box:first-child {
+    background-color: #FF6347;
+}
+
+.color_box:nth-child(2) {
+    background-color: #008080;
+}
+
+.color_box:nth-child(3) {
+    background-color: #DEB887;
+}
+
+.color_box:last-child {
+    background-color: #D7BFD7;
+}
+
+#color_list .color_box .color_box_inside {
+    background-color: white;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+}
+
+/* 두번째 color list */
+
+#second-color-list_1 .second-color-box {
+    position: relative;
+}
+
+#second-color-list_1 .second-color-box .second-color-box-inner,
+#second-color-list_2 .second-color-box .second-color-box-inner {
+    background-color: white;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 15px;
+}
+
+#second-color-list_1 .second-color-box:first-child {
+    background-color: #ffff00;
+}
+
+#second-color-list_1 .second-color-box:last-child {
+    background-color: #ffc0cb;
+}
+
+#second-color-list_2 .second-color-box:first-child {
+    background-color: blue;
+}
+
+#second-color-list_2 .second-color-box:last-child {
+    background-color: #008000;
+}
