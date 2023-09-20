@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;500;700&family=Noto+Sans+KR:wght@300;500&display=swap');
+
+body {
+    font-family: 'jura', serif;
+}
+
+/* playlist box */
+.playlist {
+    width: 300px;
+    height: 700px;
+    background-color: #fefefe;
+    border: 5px solid rgb(8, 199, 199);
+}
+
+/* top bar */
+.top-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px 0px 20px;
+    width: 240px;
+}
+
+.top-bar span {
+    display: block;
+    width: 100px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* list of songs (common) */
+.song-list {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+/* list of song (big) */
+.song-list__big {
+    padding: 0;
+}
+
+.song-color__big {
+    width: 90Px;
+    height: 90Px;
+    border: 2px solid black;
+    border-radius: 20%;
+    background-color: orange;
+    text-align: center;
+    line-height: 100px;
+}
+
+.song-title__big {
+    font-weight: 700;
+    font-size: 27px;
+}
+
+/* button line */
+.btn-line {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.play-div {
+    width: 140px;
+    height: 45px;
+    background-color: white;
+    border: 2px solid black;
+    border-bottom-width: 5px;
+    border-radius: 20%;
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.play-div span {
+    font-size: 24px;
+    font-weight: 500;
+    display: block;
+    width: 70px;
+}
+
+.line-circle-div {
+    width: 45px;
+    height: 45px;
+    border: 2px solid black;
+    border-bottom-width: 5px;
+    border-radius: 50%;
+    margin: 20px 0px;
+    text-align: center;
+    line-height: 50px;
+}
+
+/* icons */
+.fa-play,
+.fa-heart,
+.fa-plus {
+    font-size: 25px;
+}
+
+.fa-image {
+    font-size: 30px;
+    color: white;
+}
+
+/* list of songs (bottom) */
+.song-color {
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 20%;
+}
+
+.song-color__red {
+    background-color: tomato;
+}
+
+.song-color__yellow {
+    background-color: #f2f24d;
+}
+
+.song-color__blue {
+    background-color: rgb(31, 31, 194);
+}
+
+.song-color__orange {
+    background-color: rgb(236, 179, 72);
+}
+
+.song-div {
+    list-style: none;
+    padding: 0px 10px;
+}
+
+.song-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.song-author {
+    font-size: 14px;
+    color: rgba(1,1,1,0.5);
+}
