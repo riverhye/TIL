@@ -2,35 +2,29 @@
 
 :root {
     --main-yellow: #f5ce4f;
-    --main-gray: rgba(0,0,0,0.2);
     font-family: 'lato', serif;
 }
 
 body {
     margin: 0;
-    background-color: black;
     box-sizing: border-box;
+    background-color: black;
 }
 
 .library {
     width: 305px;
-    height: 730px;
+    height: 740px;
     background-color: white;
 }
 
-/* header section  */
 header {
+    width: 305px;
+    height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--main-yellow);
     position: relative;
-    width: 305px;
-    height: 90px;
-}
-
-header h4 {
-    font-size: 18px;
 }
 
 header i {
@@ -44,13 +38,11 @@ header i:last-child {
     left: 270px;
 }
 
-/* search-bar section  */
-
 .search-bar {
+    width: 305px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 305px;
     position: absolute;
     top: 80px;
 }
@@ -59,7 +51,7 @@ header i:last-child {
     width: 240px;
     height: 40px;
     background-color: white;
-    box-shadow: 0px 5px 20px var(--main-gray);
+    box-shadow: 0px 1px 15px rgb(242, 240, 240);
     border-radius: 25px;
     display: flex;
     justify-content: space-between;
@@ -68,7 +60,24 @@ header i:last-child {
 }
 
 
-/* main section  */
+.mini-star {
+    font-size: 7px;
+}
+
+.search-bar span,
+.author-list__info span {
+    font-size: 11px;
+}
+
+.today-book__author {
+    font-size: 14px;
+}
+
+header h4 {
+    font-size: 18px;
+}
+
+
 main {
     margin-top: 60px;
 }
@@ -79,8 +88,8 @@ main {
 
 .today-book__data {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .today-book__cover img {
@@ -102,34 +111,29 @@ main {
     margin: 0px;
 }
 
-.today-book__author {
-    font-size: 14px;
-}
-
 .fa-star {
     font-size: 10px;
     color: var(--main-yellow);
 }
 
-/* 회색 */
 .search-bar span,
 .author-info,
 .empty-star {
-    color: var(--main-gray);
+    opacity: 0.2;
 }
 
 .today-book__genre {
+    width: 60%;
     display: flex;
     justify-content: space-between;
-    width: 58%;
     margin: 10px 0px;
 }
 
 .today-book__genre span {
-    display: block;
     width: 50px;
     height: 20px;
     background-color:#F7F7F7;
+    display: block;
     border-radius: 3px;
     text-align: center;
     line-height: 20px;
@@ -139,21 +143,21 @@ main {
 }
 
 .bookmark {
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
 }
 
 .bookmark i {
-    display: block;
-    font-size: 10px;
-    text-align: center;
-    line-height: 25px;
     width: 25px;
     height: 25px;
     border-radius: 50px;
     background-color: var(--main-yellow);
+    display: block;
+    font-size: 10px;
+    text-align: center;
+    line-height: 25px;
     margin-right: 30px;
 }
 
@@ -161,15 +165,14 @@ main {
     width: 90px;
     height: 25px;
     background-color: black;
+    border-radius: 5px;
     color: white;
     font-size: 11px;
     text-align: center;
     line-height: 25px;
-    border-radius: 5px;
     margin-right: 20px;
 }
 
-/* top adventure section */
 .top-adventure h3 {
     padding: 0px 15px;
 }
@@ -181,22 +184,21 @@ main {
 }
 
 .book-list {
+    width: 305px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 0;
+    overflow-x: hidden;
+}
+
+.book-list__data {
+    margin: 0px 5px 0px 15px;
 }
 
 .list__data {
     list-style: none;
-    padding-left: 15px;
 }
-
-.mini-star {
-    font-size: 7px;
-}
-
-/* authors section */
 
 .popular-author {
     padding-left: 15px;
@@ -214,8 +216,8 @@ main {
 
 .author-list__data {
     display: flex;
-    align-items: center;
     justify-content: space-evenly;
+    align-items: center;
     padding: 0px;
 }
 
@@ -229,6 +231,3 @@ main {
     margin: 0px 0px 5px;
 }
 
-.author-list__info span {
-    font-size: 11px;
-}
