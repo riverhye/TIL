@@ -54,7 +54,7 @@ header i:last-child {
     width: 100px;
     height: 100px;
     border-radius: 50px;
-    box-shadow: 0px 20px 30px 1px #B12120;
+    box-shadow: 0px 30px 20px #f186c6, 0px 10px 14px #f186c6;
 }
 
 .artist-info h1 {
@@ -188,4 +188,54 @@ pseudo라는 의미 자체로 허상의 선택자를 만들어 빈 공간을 부
 
 .btm-play-bar__btn i:nth-child(2) {
     font-size: 30px;
+}
+
+.now-playing__screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.now-playing__screen img {
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    box-shadow: 0px 10px 15px #f186c6, 0px 10px 9px #f186c6;
+}
+
+.now-playing__screen h2 {
+    margin: 60px 0px 10px;
+}
+
+.now-playing__screen span {
+    color: var(--main-gray);
+}
+
+.now-playing__div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.bar {
+    height: 5px;
+    border-radius: 25px;
+    background-color: black;
+}
+
+.unplay {
+    /* opacity: 0.1; */
+    width: 300px;
+    position: relative;
+    z-index: 0;
+}
+
+.playing {
+    width: 200px;
+    position: absolute;
+    left: -50px;
+    z-index: 10;
 }
