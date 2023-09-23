@@ -7,9 +7,9 @@
 }
 
 body {
-    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Times, 'Times New Roman', serif;
     background-color: whitesmoke;
-    height: 200vh;
+    height: 120vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -31,6 +31,7 @@ body {
 header {
     display: flex;
     align-items: center;
+    margin: 5px;
 }
 
 header i {
@@ -115,11 +116,17 @@ header i:last-child {
     list-style: none;
     padding: 17px 10px;
     width: 330px;
+    position: relative;
 }
 
 .artist-song__list:nth-child(2) {
     border-radius: 15px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 1px 5px rgba(0,0,0,0.1);
+}
+
+/* 아주 간단하게 배경 이미지 어둡게하기! filter: brightness(%) */
+.artist-song__list:nth-child(2) img {
+    filter: brightness(65%);
 }
 
 .artist-song__list img {
@@ -129,9 +136,17 @@ header i:last-child {
     margin: 0px 15px;
 }
 
+.artist-song__list i:nth-child(2) {
+    font-size: 22px;
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+}
+
 /* icon 자체에 ::before 가 존재
 pseudo라는 의미 자체로 허상의 선택자를 만들어 빈 공간을 부여한 후, css 요소로서 작용 */
-.artist-song__list i {
+.artist-song__list i:last-child {
     margin-right: 10px;
     font-size: 20px;
     color: var(--main-gray);
@@ -152,10 +167,9 @@ pseudo라는 의미 자체로 허상의 선택자를 만들어 빈 공간을 부
     margin: 5px 0px 0px;
 }
 
-
 .btm-play-bar {
     width: 330px;
-    height: 70px;
+    height: 65px;
     background-color: black;
     color: white;
     border-radius: 35px;
@@ -163,9 +177,13 @@ pseudo라는 의미 자체로 허상의 선택자를 만들어 빈 공간을 부
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    top: 700px;
+    top: 710px;
     padding: 0px 30px;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1), 0px 1px 5px rgba(0,0,0,0.1);
+}
+
+.btm-play-bar__info {
+    margin-bottom: 6px;
 }
 
 .btm-play-bar__info span {
@@ -199,10 +217,10 @@ pseudo라는 의미 자체로 허상의 선택자를 만들어 빈 공간을 부
 }
 
 .now-playing__screen img {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     border-radius: 30px;
-    box-shadow: 0px 10px 15px #f186c6, 0px 10px 9px #f186c6;
+    box-shadow: 0px 20px 45px #f186c6, 0px 20px 25px #fec9e9;
 }
 
 .now-playing__screen h2 {
@@ -217,25 +235,79 @@ pseudo라는 의미 자체로 허상의 선택자를 만들어 빈 공간을 부
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
-.bar {
-    height: 5px;
-    border-radius: 25px;
-    background-color: black;
+.play-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.2;
+    font-size: 12px;
+}
+
+.now-playing__bar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .unplay {
-    /* opacity: 0.1; */
-    width: 300px;
+    width: 320px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
     position: relative;
-    z-index: 0;
 }
 
 .playing {
     width: 200px;
+    height: 5px;
+    background-color: black;
+    border-radius: 25px;
     position: absolute;
-    left: -50px;
+    top: 0px;
+}
+
+.playing div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    top: -2px;
+    right: 0px;
     z-index: 10;
+}
+
+.now-playing__btn {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.now-playing__btn i {
+    margin: 15px;
+    font-size: 20px;
+}
+
+.now-playing__btn i:first-child,
+.now-playing__btn i:last-child {
+    opacity: 0.2;
+    font-size: 18px;
+}
+
+.now-playing__btn i:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background-color: black;
+    border-radius: 50%;
+    color: white;
+    font-size: 22px;
+    box-shadow: 0px 9px 9px rgba(0,0,0,0.1), 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
