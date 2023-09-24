@@ -38,14 +38,33 @@
             console.log(`${k}번째`);
             k++;
         }
-/* 하지만 보통의 경우 증감문이 마지막 실행 순서라서 전위연산자와 후위연산자가 차이 없다. 
-다만 관례상 후위연산자를 쓴다. */
+        /* 하지만 보통의 경우 증감문이 마지막 실행 순서라서 전위연산자와 후위연산자가 차이 없다. 
+        다만 관례상 후위연산자를 쓴다. */
         for(let i=0; i<5; ++i) {
             console.log('증가 연산자를 앞에');
         }
         for(let i=0; i<5; i++) {
             console.log('증가 연산자를 뒤에');
         }
+
+        //객체 만들기
+        let favThing = {};
+        favThing.color = "yellow";
+        favThing.brand = "apple";
+        favThing.season = "winter";
+        favThing.me = "do my best";
+        favThing.song = "don't look back in anger";
+        console.log("fav Thing", favThing);
+        //'prototype: Object'에서 프로토타입이 뭘까? 직역하면 '원형'인데.'
+
+        let favThing2 = {
+        color : "yellow",
+        brand : "apple",
+        season : "winter",
+        me : "do my best",
+        song : "don't look back in anger"
+        }
+        console.log(favThing2);
     </script>
 </body>
 </html>
