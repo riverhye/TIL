@@ -483,3 +483,29 @@ this.getDiameter = function () {
 
 const circle = Circle(5);
 console.log(circle.getDiameter());
+
+//함수 객체 프로퍼티
+function square(number) {
+    return number*number;
+}
+
+console.log(Object.getOwnPropertyDescriptor(Object.prototype,'__proto__'));
+//{enumerable: false, configurable: true, get: ƒ, set: ƒ}
+
+//arguments
+function multiply1(x,y) {
+    console.log(arguments);
+    return x*y;
+}
+
+console.log(multiply1(3,5));
+
+// name property
+var namedFunc = function fofo() {};
+console.log(namedFunc.name);
+
+var anonymousFunc = function() {};
+console.log(anonymousFunc.name);
+
+function bar2() {}
+console.log(bar2.name);
