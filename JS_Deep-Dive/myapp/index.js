@@ -218,3 +218,243 @@ if(!false) console.log(false+' is falsy value');
 Boolean('hello');
 'cat' && 'dog';
 
+
+var person = {
+	name: 'K',
+	sayHello: function() {
+    	console.log(`Hello my name is ${name}.`)
+   }
+}
+console.log(person); //
+
+var cat = {
+	name: 'choco'
+};
+
+//property 추가와 삭제
+cat.age = 20;
+console.log(cat);
+delete cat.age;
+console.log(cat);
+
+//프로퍼티 축약
+let abc = 1, def = 2;
+const obj = {abc,def};
+console.log(obj);
+
+//계산된 프로퍼티 이름
+const colorBoxList = 'colorBox';
+let number = 0;
+
+const boxObj = {
+    [`${colorBoxList}-${++number}`]: number,
+    [`${colorBoxList}-${++number}`]: number,
+    [`${colorBoxList}-${++number}`]: number
+};
+console.log(boxObj);
+
+const obj1 = {
+	name: 'cat',
+	age: 30,
+	saying() {
+    console.log('meew im a ' + this.name)
+    }
+   };
+  
+obj1.saying(); //meew im a cat
+
+//값에 의한 전달
+var score = 80;
+var scoreCopy = score;
+
+score = 100;
+console.log(score); //100
+console.log(scoreCopy); //80 메모리주소에 값이 전달!
+
+function add(x,y) {
+    console.log(x+y); //7
+}
+
+add(3,4);
+
+//function hoisiting
+console.dir(add);
+console.dir(sub);
+
+console.log(add(3,4));
+// console.log(sub(3,4));
+
+function add(x,y) {
+    return x+y;
+}
+
+var sub = function(x,y) {
+    return x-y;
+}
+
+//return
+function food() {
+    return;
+}
+console.log(food());
+
+function fool() {
+
+}
+console.log(fool());
+
+//순수 비순수 함수
+var count = 0;
+
+function increase(n) {
+	return ++n;
+}
+
+count = increase(count);
+console.log(count); 
+
+var count = 0;
+
+function increase() {
+	return ++count;
+}
+
+increase();
+console.log(count); //1
+
+//스코프
+var i = 10;
+for(var i=0; i<5; i++) {
+    console.log(i);
+}
+
+console.log(i);
+
+//정적 스코프
+var x=1;
+
+function fo() {
+    var x=10;
+    bar();
+}
+
+function bar() {
+    console.log('x', x);
+}
+
+fo();
+bar(); 
+
+//호이스팅과 스코프
+var p = 'global';
+
+function po() {
+    console.log(p); //undefined
+    var p = 'local';
+}
+
+console.log(p); //global
+po();
+
+//네임스페이스 객체
+var MYAPP = {};
+
+MYAPP.name = {
+	firstName: 'Kate',
+  	lastName: 'BR'
+};
+
+console.log(MYAPP.name.firstName); //Kate
+
+//var의 문제점
+var x = 1;
+if(true) var x = 10;
+
+console.log(x); //10
+
+function go() {
+	let i = 100;
+	for (let i=1; i<3; i++) {
+    	console.log(i);
+    }
+}
+
+go();
+
+//let
+let k = 1;
+console.log(window.k); //undefined
+
+const today = {
+	isGood: true,
+	weather: 'sunny'
+}
+
+today.weather = 'windy';
+
+console.log(today.weather); // windy
+
+//property
+const user = {
+        name: 'Kate'
+};
+
+user.age = 20;
+
+console.log(Object.getOwnPropertyDescriptors(user));
+//{value: 'Kate', writable: true, enumerable: true, configurable: true}
+
+const she = {
+    firstName: 'Carol',
+    lastName: 'Kate',
+    get fullName () {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    set fullName (name) {
+        [this.firstName, this.lastName] = name.split(' ');
+    }
+};
+
+console.log(she.firstName + ' ' + she.lastName);
+
+she.fullName = 'yenny cho'
+console.log(she); // {firstName: 'yenny', lastName: 'cho'}
+
+console.log(she.fullName); //yenny cho
+
+//define property
+const her = {};
+
+Object.defineProperty(person, 'firstName', {
+    value: 'Kate',
+    writable: true,
+    enumerable: true,
+    configurable: true
+});
+
+Object.defineProperty(person, 'lastName', {
+    value: 'Kind',
+    //객체의 누락된 프로퍼티는 false, undefined가 기본 값
+});
+
+//수정 불가, 나열 불가, 삭제 불가
+//시도 시 에러 발생 안 하고 무시 된다.
+
+//불변 객체
+function deepFreeze(target) {
+    if (target && typeof target === 'object' && !Object.isFrozen(target)) {
+        Object.freeze(target);
+       // Obeject.keys(target).forEach(key => deepFreeze(target[key]));
+    }
+    return target;
+}
+
+const human = {
+    name: 'Kate',
+    address: {city: 'Seoul'}
+};
+
+deepFreeze(human);
+
+//person.address.city = 'Daegu';
+console.log(human);
