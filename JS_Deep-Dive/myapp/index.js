@@ -458,3 +458,28 @@ deepFreeze(human);
 
 //person.address.city = 'Daegu';
 console.log(human);
+
+//생성자 함수 오브젝트
+const saram = new Object();
+
+saram.name = 'K';
+saram.sayHi = function() {
+	console.log('Hi! My name is ' + this.name);
+};
+
+saram.sayHi();
+console.log(saram);
+
+//뉴 연산자
+function Circle(radius) {
+	if(!new.target) {
+    	return new Circle(radius);
+    }
+this.radius = radius;
+this.getDiameter = function () {
+	return 2 * this.radius;
+	};
+}
+
+const circle = Circle(5);
+console.log(circle.getDiameter());
