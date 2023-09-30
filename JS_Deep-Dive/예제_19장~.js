@@ -20,3 +20,18 @@ for ( const key in person) {
 // 배열에는 일반 for문, for OfflineAudioCompletionEvent, Array.prototype.forEach 메서드 사용 권장!
 // = > Object.key/values/entries 메서드 사용 권장
 
+
+//non-strict mode
+function foo() {
+    x = 10;
+}
+foo();
+
+console.log(x); //10
+
+//strict mode
+(function (a) {
+    'use strict';
+    a=2;
+    console.log(arguments);
+}(1));
