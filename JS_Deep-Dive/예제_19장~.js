@@ -29,9 +29,29 @@ foo();
 
 console.log(x); //10
 
-//strict mode
-(function (a) {
-    'use strict';
-    a=2;
-    console.log(arguments);
-}(1));
+
+//래퍼 객체
+const str = 'hello';
+
+console.log(str.length);
+console.log(str.toUpperCase());
+
+const string = 'hi!';
+string.name = 'Kate';
+console.log(string.name); //undefined
+
+//암묵적 전역
+var x = 10;
+function food() {
+    y = 5;
+    console.log(x+y);
+}
+food();
+console.log(x+y); //15
+console.log(x); //10
+console.log(y); //5
+delete x;
+delete y;
+console.log(x); //10
+console.log(y); //ReferenceError: y is not defined
+
