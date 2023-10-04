@@ -24,6 +24,35 @@
             console.log(node);
             // HTML이므로 span도 합쳐서 a b c 하나씩 - 마찬가지로 forEach문이니까!
         }); 
+
+        var str = 'abc def';
+        // concat : 2개 이상의 배열 합쳐서 하나의 배열로
+        console.log(Array.prototype.concat.call(str, 'string')); // (2) [String, 'string']
+
+        // 함수의 조건을 배열의 모든 요소가 충족했는지 : 불리언 갑 반환
+        console.log(Array.prototype.every.call(str, function(char) {return char !== ' ';}));
+        // 공백 하나 있으므로 false 반환
+
+        // 함수의 조건을 배열의 일부 요소가 충족했는지 : 불리언 값 반환
+        Array.prototype.some.call(str, function(char) {return char === ' ';});
+
+        // 함수를 배열의 모든 요소에 적용한 것을 모아 새 배열로 반환
+        var newArr = Array.prototype.map.call(str, function(char) {return char+'!';});
+        console.log(newArr);
+        // (7) ['a!', 'b!', 'c!', ' !', 'd!', 'e!', 'f!']
+
+        /* reducer 함수를 배열의 모든 요소에 적용하여 하나의 결과값 반환
+        * map() filter()를 대체할 수 있는 함수
+        * arr.reduce(callback-accumulator, currenValue[, currentIndex, array][, initialvalue])
+        * reduce를 아예 모르겠다..
+        */
+        var newStr = Array.prototype.reduce.apply(str, 
+        [function(string, char, i) {return string+char+i;}, 
+        '']);
+        console.log(newStr);
+
+
+
     </script>
 </body>
 </html>
