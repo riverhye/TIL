@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 도서 예제</title>
+</head>
+<body>
+    <script>
+        // 3장 this
+        // 유사배열객체 call/apply 메서드 활용
+        function a () {
+            var argv = Array.prototype.slice.call(arguments);
+            argv.forEach(function (arg) {
+                console.log(arg); // 1 2 3 하나씩 - forEach로 배열 순회했으니까
+            });
+        }
+        a(1,2,3);
+
+        document.body.innerHTML = '<span>a</span><span>b</span><span>c</span>';
+        var nodeList = document.querySelectorAll('span');
+        var nodeArr = Array.prototype.slice.call(nodeList);
+        nodeArr.forEach(function (node) {
+            console.log(node);
+            // HTML이므로 span도 합쳐서 a b c 하나씩 - 마찬가지로 forEach문이니까!
+        }); 
+    </script>
+</body>
+</html>
