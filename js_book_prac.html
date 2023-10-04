@@ -46,6 +46,17 @@
         * arr.reduce(callback-accumulator, currenValue[, currentIndex, array][, initialvalue])
         * reduce를 아예 모르겠다..
         */
+
+        /* apply 메서드는 첫 인자를 this에 바인딩하고, 두번째 인자는 배열로 받아 호출할 함수의 매개변수로 지정한다. 이 매개변수는 함수와 문자..? 로 이루어짐.
+        * 이 경우엔 함수 자체가 매개변수가 되었다... reduce에서 콜백함수를 사용하기 때문인가? apply의 두번째 인자는 Array 함수에게 권한을 넘겨준 콜백함수?
+        * 그럼 저건 reduce 메서드의 인자들로 해석하는 게 맞다는 가설 하에 생각을 해보자.
+        * 첫번째 인자: 콜백의 반환값을 저장하는 누산기.
+        * 두번째 인자: 현재 처리할 요소
+        * 세번째 인자: 가 문제다. 처리할 요소의 인덱스/reduce()를 호출한 배열/초기값
+        * 각 요소(인자)에 콜백 함수를 한 번씩 실행한단다.
+        * 일단 초기값은 0이고, 첫번째 인수는 배열의 첫번째 값, 그 다음은 두번째 값.... 모르겠다....
+        * string과 인덱스 순이었다가 공백을 기준으로 인덱스 string 순으로 바뀌었는데 왜일까..
+        */
         var newStr = Array.prototype.reduce.apply(str, 
         [function(string, char, i) {return string+char+i;}, 
         '']);
