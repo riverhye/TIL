@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS 도서 예제</title>
+    <title>CORE JS 예제</title>
 </head>
 <body>
     <script>
@@ -62,6 +62,23 @@
         '']);
         console.log(newStr);
 
+        // 내부함수에 this 전달
+        var obj = {
+            outer: function() {
+                console.log(this); // outer
+                var innerFunc = function() {
+                    console.log(this); // 함수로 호출 시 window, call로 this 지정 호출 시 outer
+                }.call(this); // 호출은 outer 안에서 일어나니까 this가 outer로 지정
+                // 함수에 바로 접근하지 않고, 아래처럼 따로 호출도 가능
+                // innerFunc.call(this);
+                // bind로 바꿔도 동일 기능
+                // bind : 즉시 호출하지 않고 넘겨 받은 this, 인수들 바탕으로 새 함수 반환만
+
+                // cf. 객체 없이 함수로만 호출해서 호출 주체인 객체 없음 -> this 설정할 게 없음 -> 전역 객체로 지정
+                // innerFunc();
+            }
+        };
+        obj.outer();
 
 
     </script>
