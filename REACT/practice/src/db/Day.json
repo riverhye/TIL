@@ -1,0 +1,31 @@
+{
+    "months" : [
+        {"id": 1, "month": "Jan"},
+        {"id": 2, "month": "Feb"},
+        {"id": 3, "month": "Mar"},
+        {"id": 4, "month": "Apr"},
+        {"id": 5, "month": "May"},
+        {"id": 6, "month": "JUN"},
+        {"id": 7, "month": "AUG"},
+        {"id": 8, "month": "SEP"},
+        {"id": 9, "month": "OCT"},
+        {"id": 10, "month": "NOV"},
+        {"id": 11, "month": "DEC"}
+    ],
+    "weeks" : [
+        {"id": 12, "week": 1},
+        {"id": 13, "week": 2},
+        {"id": 14, "week": 3},
+        {"id": 15, "week": 4},
+        {"id": 16, "week": 5}
+    ],
+    "days" : [
+        {"id": 17, "day": 1},
+        {"id": 18, "day": 2},
+        {"id": 19, "day": 3},
+        {"id": 20, "day": 4},
+        {"id": 21, "day": 5},
+        {"id": 22, "day": 6},
+        {"id": 23, "day": 7}
+    ]
+}
