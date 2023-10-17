@@ -4,7 +4,7 @@ import './App.css';
 import {useState} from 'react';
 
 function App() {
-  const [title, setTitle] = useState(['23 FW 패션', '용산 맛집', '가을 나들이 명소'].sort());
+  const [title, setTitle] = useState(['23 FW 패션', '용산 맛집', '가을 나들이 명소']);
   const [count, setCount] = useState(0);
 
   return (
@@ -12,9 +12,12 @@ function App() {
       <div className="black-nav">
         <h4>blog</h4>
       </div>
-      <button>가나다순 정렬</button>
       <button onClick={()=>{
-        const copy = [...title].sort();
+        const copyTitleArr = [...title];
+        setTitle(copyTitleArr.sort());
+      }}>가나다순 정렬</button>
+      <button onClick={()=>{
+        const copy = [...title];
           copy[1] = '강남 맛집';
           setTitle(copy)}}>맛집 지역 변경</button>
       <button onClick={()=>{
@@ -34,8 +37,21 @@ function App() {
         <h4>{title[2]}</h4>
         <p>date</p>
       </div>
+
+      <Modal />
+
     </div>
   );
+}
+
+function Modal(){
+  return (
+    <div className="modal">
+      <h4>Title</h4>
+      <p>Date</p>
+      <p>Content</p>
+    </div>
+  )
 }
 
 export default App;
