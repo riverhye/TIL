@@ -4,8 +4,11 @@ import './App.css';
 import {useState} from 'react';
 
 function App() {
-  const [title, setTitle] = useState(['23 FW 패션', '용산 맛집', '가을 나들이 명소']);
-  const [count, setCount] = useState(0);
+ const [title, setTitle] = useState(['23 FW 패션', '용산 맛집', '가을 나들이 명소']);
+ const [count, setCount] = useState(0);
+
+
+const [modal, setModal] = useState(false);
 
   return (
     <div className="App">
@@ -34,15 +37,20 @@ function App() {
         <p>date</p>
       </div>
       <div className="list">
-        <h4>{title[2]}</h4>
+        <h4 onClick={()=>{ 
+          modal === true ? setModal(false) : setModal(true);
+           }}> {title[2]}</h4>
         <p>date</p>
       </div>
 
-      <Modal />
+  {
+    modal === false ? null : <Modal />
+  }
 
     </div>
   );
 }
+
 
 function Modal(){
   return (
