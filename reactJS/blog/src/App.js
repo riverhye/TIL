@@ -1,18 +1,18 @@
 /* eslint-disabled */
 
-import "./App.css";
-import { useState } from "react";
+import './App.css';
+import { useState } from 'react';
 
 function App() {
   const [title, setTitle] = useState([
-    "23 FW 패션",
-    "용산 맛집",
-    "가을 나들이 명소",
+    '23 FW 패션',
+    '용산 맛집',
+    '가을 나들이 명소',
   ]);
   const [count, setCount] = useState([0, 0, 0]);
   const [modal, setModal] = useState(false);
   const [index, setIndex] = useState(0);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   return (
     <div className="App">
@@ -30,6 +30,10 @@ function App() {
       </button>
 
       {title.map(function (t, i) {
+        const date = new Date();
+        let now = `${date.getFullYear()}년 ${
+          date.getMonth() + 1
+        }월 ${date.getDate()}일`;
         return (
           <div className="list">
             <h4
@@ -53,11 +57,14 @@ function App() {
               {count[i]}
             </h4>
             <div className="btn-line">
-              <p>Upload Date.</p>
+              <p>{now}</p>
               <button
                 className="btn"
                 onClick={() => {
                   setTitle(title.filter((a) => a !== t));
+                  const copyC = [...count];
+                  copyC.splice(i, 1);
+                  setCount(copyC);
                 }}
               >
                 Del
@@ -69,20 +76,35 @@ function App() {
 
       {modal === true ? (
         <Modal
-          color={"yellow"}
+          color={'yellow'}
           title={title}
           setTitle={setTitle}
           index={index}
         />
       ) : null}
-
-      <input
-        type="text"
-        onChange={(e) => {
-          setInput(e.target.value);
-        }}
-      />
-      <button onClick={() => setTitle([input, ...title])}>Add</button>
+      <form>
+        <input
+          type="text"
+          required
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+        />
+        <button
+          type="submit"
+          onClick={(e) =>
+            input.length <= 0
+              ? 'error'
+              : setTitle(
+                  [input, ...title],
+                  setCount([0, ...count]),
+                  e.preventDefault()
+                )
+          }
+        >
+          Add
+        </button>
+      </form>
     </div>
   );
 }
@@ -96,7 +118,7 @@ function Modal(props) {
       <button
         onClick={() => {
           const copyTitle = [...props.title];
-          copyTitle[0] = "23 Winter 패션";
+          copyTitle[0] = '23 Winter 패션';
           props.setTitle(copyTitle);
         }}
       >
