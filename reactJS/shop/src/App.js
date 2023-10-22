@@ -51,18 +51,18 @@ function Jacket(props) {
     '/outer/YellowJacket.jpg',
   ];
   return (
-    <Row>
+    <Row className="card-row">
       {
-      [0, 1, 2].map((a, i) => {
+      ['product0', 'product1', 'product2'].map((a, i) => {
         return (
-          <Col>
+          <Col key = {i}>
             <img
               className="sub-img"
               alt="sub img"
               src={process.env.PUBLIC_URL + url[i]}
             />
-            <h4>{props.product1.title}</h4>
-            <p>{props.product1.price}</p>
+            <h4>{a}</h4>
+            <p>{props.product0.price}</p>
           </Col>
         );
       })
