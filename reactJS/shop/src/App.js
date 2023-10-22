@@ -45,6 +45,11 @@ function App() {
 }
 
 function Jacket(props) {
+  const productT = []
+  productT.push(props.product0.title, props.product1.title, props.product2.title);
+  const productP = []
+  productP.push(props.product0.price, props.product1.price, props.product2.price);
+
   const url = [
     '/outer/RedJacket.jpg',
     '/outer/Denim.jpg',
@@ -53,7 +58,7 @@ function Jacket(props) {
   return (
     <Row className="card-row">
       {
-      ['product0', 'product1', 'product2'].map((a, i) => {
+      productT.map((a, i) => {
         return (
           <Col key = {i}>
             <img
@@ -62,7 +67,7 @@ function Jacket(props) {
               src={process.env.PUBLIC_URL + url[i]}
             />
             <h4>{a}</h4>
-            <p>{props.product0.price}</p>
+            <p>{productP[i]}</p>
           </Col>
         );
       })
