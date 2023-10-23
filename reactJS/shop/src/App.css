@@ -35,14 +35,12 @@ code {
 }
 
 .card-row {
-  width: 100%;
+  margin-top: 50px;
 }
 
 .sub-img {
-  width: 80%;
+  width: 350px;
   height: 70%;
 }
 
-.sub-img-list {
-  margin-top: 40px;
-}
+

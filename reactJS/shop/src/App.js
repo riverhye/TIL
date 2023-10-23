@@ -33,46 +33,28 @@ function App() {
         </Container>
       </Navbar>
       <div className="main-img"></div>
-      <Container className="sub-img-list"></Container>
-
-      <Jacket
-        product0={product[0]}
-        product1={product[1]}
-        product2={product[2]}
-      />
+      <Row className="card-row">
+        
+        {
+        product.map((a, i)=>{
+          return <Jacket product={product[i]} i={i} />
+        })
+        }
+      </Row>
     </div>
-  );
-}
+
+  )
+  };
 
 function Jacket(props) {
-  const productT = []
-  productT.push(props.product0.title, props.product1.title, props.product2.title);
-  const productP = []
-  productP.push(props.product0.price, props.product1.price, props.product2.price);
-
-  const url = [
-    '/outer/RedJacket.jpg',
-    '/outer/Denim.jpg',
-    '/outer/YellowJacket.jpg',
-  ];
   return (
-    <Row className="card-row">
-      {
-      productT.map((a, i) => {
-        return (
-          <Col key = {i}>
-            <img
-              className="sub-img"
-              alt="sub img"
-              src={process.env.PUBLIC_URL + url[i]}
-            />
-            <h4>{a}</h4>
-            <p>{productP[i]}</p>
-          </Col>
-        );
-      })
-      }
-    </Row>
+      <Col key = {props.id}>
+          <img className="sub-img" alt="sub img"
+          src={'/outer/jacket' + (props.i+1) + '.jpg'} />
+          <h4>{props.product.title}</h4>
+          <p>{props.product.price}</p>
+      </Col>
+
   );
 }
 
