@@ -1,42 +1,47 @@
 import './App.css';
 import { Navbar, Nav, NavDropdown, Container, Row, Col } from 'react-bootstrap';
-import data from './data';
-import Detail from './detail';
 import { useState } from 'react';
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, useNavigate, Outlet} from 'react-router-dom'
+import data from './data';
+import Detail from './pages/detail';
 
 function App() {
   const [product] = useState(data);
+  const navigate = useNavigate();
 
   return (
     <div className="App">
       <Navbar className="nav-container" bg="warning" data-bs-theme="light">
         <Container>
-          <Navbar.Brand className="nav-brand" href="/" fixed="top">
+          <Navbar.Brand className="nav-brand" onClick={()=>{navigate('/')}} fixed="top">
             Autumn Style
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/">New Arrivals</Nav.Link>
-            <Nav.Link href="detail">Detail</Nav.Link>
+            <Nav.Link onClick={()=>navigate(-1)}>뒤로 가기</Nav.Link>
+            <Nav.Link onClick={()=>navigate('/detail')}>Detail</Nav.Link>
             <Nav.Link href="top">Top</Nav.Link>
             <Nav.Link href="bottom">Bottom</Nav.Link>
             <Nav.Link href="shoes">Shoes</Nav.Link>
             <Nav.Link href="acc">Acc</Nav.Link>
             <NavDropdown title="Special" id="navbarScrollingDropdown">
               <NavDropdown.Item href="sale">Sale</NavDropdown.Item>
-              <NavDropdown.Item href="event">Event</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>navigate('/event')}>Event</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="foru">For you</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="mypages">My Pages</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/cart')}}>Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
       <Routes>
         <Route path="/" element={<Main product={product}/>} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail product={product} />} />
+        <Route path="/event" element={<Event />}>
+          <Route path="one" element={<div>첫 주문 시 양배추즙 서비스</div>} />
+          <Route path="two" element={<div>생일기념 쿠폰 받기</div>} />
+        </Route>
       </Routes>
     </div>
   )};
@@ -64,6 +69,15 @@ function Jacket(props) {
         <h4>{props.product.title}</h4>
         <p>{props.product.price}</p>
       </Col>
+    </>
+  )
+}
+
+function Event() {
+  return (
+    <>
+    <h2>오늘의 이벤트</h2>
+    <Outlet></Outlet>
     </>
   )
 }
