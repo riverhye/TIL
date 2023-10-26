@@ -18,7 +18,6 @@ function App() {
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={()=>navigate(-1)}>뒤로 가기</Nav.Link>
-            <Nav.Link onClick={()=>navigate('/detail')}>Detail</Nav.Link>
             <Nav.Link href="top">Top</Nav.Link>
             <Nav.Link href="bottom">Bottom</Nav.Link>
             <Nav.Link href="shoes">Shoes</Nav.Link>
@@ -57,15 +56,19 @@ function Main(props) {
       })
     }
     </Row>
+    <button>MORE</button>
     </>
   )
 }
 
 function Jacket(props) {
+  const navigate = useNavigate();
   return (
     <>
       <Col>
-        <img className="sub-img" alt="sub-img" src={`/outer/jacket${props.i+1}.jpg`} />
+        <img onClick={()=>{
+          navigate('/detail/'+props.i)
+        }} className="sub-img" alt="sub-img" src={`/outer/jacket${props.i+1}.jpg`} />
         <h4>{props.product.title}</h4>
         <p>{props.product.price}</p>
       </Col>
